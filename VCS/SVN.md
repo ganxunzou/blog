@@ -39,7 +39,7 @@ auth-access = write
 password-db = passwd
 authz-db = authz
 realm = h5
- 
+
 5. 启动SVN服务
 svnserve -d -r /home/data/svn/ （ -d 表示守护进程， -r 表示在后台执行 /home/data/svn/ 为svn的安装目录 ）
 
