@@ -1,0 +1,40 @@
+====================================================
+添加Nginx对于静态文件的缓存配置
+====================================================
+（1）缓存静态资源之图片文件
+
+root /data/nginx/staticresources/image：对于配置中提到的jpg/png等文件均定位到/data/nginx/staticresources/image文件夹中进行寻找匹配并将文件返回；
+
+expires 7d：过期时效为7天，静态文件不怎么更新，过期时效可以设大一点，如果频繁更新，则可以设置得小一点；
+
+location ~\.(jpg|png|jpeg|bmp|git|swf)$
+{
+	root /data/nginx/staticresources/image;
+	if(-f $request_filename){
+		expires 7d;
+		break;
+	}
+}
+
+
+（2）缓存静态资源之样式文件
+location ~\.(css|less)$
+{
+	root /data/nginx/staticresources/css;
+	if(-f $request_filename){
+		expires 7d;
+		break;
+	}
+}
+
+（3）缓存静态资源之脚本文件
+location ~\.(js)$
+{
+	root /data/nginx/staticresources/js;
+	if(-f $request_filename){
+		expires 7d;
+		break;
+	}
+}
+
+（5）总结：通过配置静态文件的缓存设置，对于这些静态文件的请求可以直接从反向代理服务器中直接返回，而无需再将这些静态资源请求转发到具体的Web服务器进行处理了，可以提高响应速度，减轻真实Web服务器的负载压力。

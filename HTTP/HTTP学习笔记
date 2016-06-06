@@ -1,0 +1,9 @@
+=====HTTP 请求=====
+1. 请求行    ：Method Request-URL HTTP-version（eg: POST /WebPrj/abc.action HTTP/1.1）
+2. 消息报头
+3. 请求正文
+
+
+
+
+=====HTTP 请求=====

@@ -1,0 +1,13 @@
+CNPM搭建企业NPM伺服
+
+经历了两三天的努力，成功用CNPM搭建了企业的NPM伺服。
+
+这里要特别感谢：http://blog.fens.me/series-nodejs/  的分享。我才能成功的搭建。
+
+技术的交流会让很多人少走一些弯路。以下将会分成多个文章进行详细说明，十分适合小白。
+
+CNPM搭建企业NPM伺服之一环境搭建
+CNPM搭建企业NPM伺服之二cnpm 配置说明
+CNPM搭建企业NPM伺服之三cnpm sync 同步
+CNPM搭建企业NPM伺服之三cnpm 表结构说明
+ 

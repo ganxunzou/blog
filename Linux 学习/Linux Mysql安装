@@ -1,0 +1,27 @@
+登陆异常：
+[root@iZ28qt5vcnzZ etc]# mysql -uroot -p
+Enter password: 
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+
+修改 /etc/my.cnf
+[mysqld]
+skip-grant-tables
+skip-networking
+
+重启
+systemctl restart mysqld
+
+
+修改Mysql root的密码
+  update mysql.user set PASSWORD=PASSWORD('gxz153759') where user='root' and host='localhost';
+  ALTER USER 'root'@'localhost' IDENTIFIED BY 'Gxz&123567' ;
+  update mysql.user set authentication_string=PASSWORD('gxz153759') where user='root' and host='localhost';
+
+flush privileges;
+
+ 查看版本：
+ select version();
+
+
+

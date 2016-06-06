@@ -1,0 +1,6 @@
+单一职责原则（Single responsibility principle）
+里氏替换原则（LISKOV substitution principle）
+依赖倒置原则（dependence inversion principle）
+接口隔离原则（interface segregation principle）
+迪米特法则（LOW OF Demeter）
+开闭原则(Open close principle)

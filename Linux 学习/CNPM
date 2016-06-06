@@ -1,0 +1,4 @@
+
+发布版本：cnpm view packages versions 查看所有的package版本
+卸载版本：cnpm unpublish @conivision/hellogg@1.0.0
+查看最新版本：cnpm info package

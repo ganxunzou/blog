@@ -1,0 +1,9 @@
+1. ANT 增加for is-else 功能
+   -- 依赖：ant-contrib-1.0b3
+
+    <taskdef resource="net/sf/antcontrib/antlib.xml">  
+ 	  <classpath>  
+ 	    <pathelement location="${FLEX_HOME}/ant/ant-contrib/ant-contrib-1.0b3.jar"/>  
+ 	  </classpath>  
+ 	</taskdef> 
+

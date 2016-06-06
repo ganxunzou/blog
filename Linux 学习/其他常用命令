@@ -1,0 +1,6 @@
+find / -name '*cnpmjs.org*'   查找 / 目录下的所有 包含 cnpmjs.org的目录和文件
+
+skip-networking
+
+nohup cnpmjs.org start --admins='ganxz' \
+  --scopes='@conivision' &

@@ -1,0 +1,36 @@
+1. 线程的几种状态
+   -- 新状态：刚刚实例化的线程的状态
+   -- 运行状态：调用了start方法后，开发执行任务。
+   -- 就绪状态：当一个线程在等待另一个线程执行一个任务的时候
+   -- 休眠状态：调用线程的sleep方法
+   -- 终止状态：
+
+
+1. 多线程几个主要概念
+   -- 线程同步
+   -- 线程间通信
+   -- 线程死锁
+   -- 线s
+
+
+ 2. 线程同步
+   -- 线程同步的方式主要有两种，一种是使用synchronized关键字，一种使用JDK1.5提供的Lock对象
+     -- synchronized 可以同步函数或者同步代码块
+        -- 同步函数 public synchronized void func(){}
+        -- 同步代码块
+            synchronized(obj){
+            	//TODO:sync code
+            }
+    -- Lock 接口（ReentrantLock对象）
+        Lock lock = new ReentrantLock();
+        lock.lock();
+        //TOD:Code
+        lock.unlock();
+
+3.  线程间通讯
+    -- 线程间通讯借助Object类的，wait()，nodify(),nodifyAll()函数。
+
+
+4. 线程死锁
+    -- 
+

@@ -1,0 +1,41 @@
+安装：
+   npm install package [-f]
+
+更新：
+   npm update package
+
+查看模块信息：
+   npm view react
+   npm v react
+   npm info react
+   npm show react 
+
+查看模块所有的版本信息
+   npm info react versions
+
+
+查看npm 所有的配置
+   npm config ls -l
+
+查看npm 某一项配置:
+   npm config get cache (其中cache是配置项)
+
+查看包的registry
+   查看所有版本信息：https://registry.npmjs.org/react
+   查看指定版本的信息：https://registry.npmjs.org/react/v0.14.6
+   查看版本对应的源码：
+   dist: {
+	  shasum: '2a57c2cf8747b483759ad8de0fa47fb0c5cf5c6a',
+	  tarball: 'http://registry.npmjs.org/react/-/react-0.14.6.tgz' 
+	},
+
+清除缓存
+   npm cache clean 
+
+
+直接从缓存下载：
+   npm install --cache-min 9999999 <package-name> 或者 
+   npm install --cache-min Infinity <package-name>
+
+离线安装npm（最好改用CNPM伺服）
+

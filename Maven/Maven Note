@@ -1,0 +1,18 @@
+1. Maven 是什么？干什么用的？
+	-- Apache Maven是一个项目管理和综合工具。Maven提供了开发人员构建一个完整的生命周期框架。
+	-- Maven提供了开发人员的方式来管理下面：
+			Builds
+
+			Documentation
+
+			Reporting
+
+			Dependencies
+
+			SCMs
+
+			Releases
+
+			Distribution
+
+			mailing list

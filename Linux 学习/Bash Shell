@@ -1,0 +1,53 @@
+Shell 
+    -- Shell
+        -- kernel
+           -- 硬件
+
+Bash Shell 是GNU的重要工具之一，预设的shell。（系统启动后的界面就是Bash Shell）
+    -- 优点
+       -- 命令编译能力（类似DOC的dockey）
+       -- 命令与档案补全模式（tab键补全）
+       -- 命令别名（alias ,unalias）
+       -- 工作控制，前背景控制
+       -- Shell scripts
+       -- 万能字符 * 
+
+    -- Shell 的变量功能
+       -- 变量的取用和设定
+          -- 取用 echo $name
+          -- 设定 name=value
+          -- 追加
+             -- name="$name"value 
+             -- name+=value(等号两边不能有空格)
+
+          -- 将变量装成环境变量 export
+          -- 取消变量 unset name
+          -- 在赋值的时候引用命令 name=value1`command`value2
+        
+        --系统变量
+          -- env
+          -- PS1 提示
+          -- PID (echo $$)
+          -- ? （echo $?）上个指令的返回值，0：正确执行
+          -- export
+
+        -- 变量的读取，数组和声明
+          -- 读取: read name （）
+          -- 声明：declare [-aixr] name
+            -- -a  数组
+            -- -i  整数数字
+            -- -x  export
+            -- -r  readonly
+
+        -- ulimit 显示使用者的某些系统资源
+        -- 额外的变量
+           -- 从头删除  ${name##/*/}
+              -- ## 最长一段
+              -- # 最短一段
+           -- 从尾删除 ${name%%/*/}
+
+        -- 历史命令
+           -- !! 上一个命令
+           -- !n 上N个命令
+           -- !vi 最新一次vi的命令
+

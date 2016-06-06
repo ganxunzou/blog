@@ -1,0 +1,55 @@
+android 安全沙箱
+  1. Android操作系统是一个多用户的Linux系统，每个app都对应不同的用户
+  2. 默认情况下，系统会给每个app配置一个唯一的Linux 用户ID（这个ID只有系统自己使用，针对App是透明的）
+  3. 每个进程都运行在自己的虚拟机中，所以app运行时相互隔离的
+  4. 默认情况下，每个App润兴在自己的Linux进程，当app的组件需要被执行的时候，安装会启动这个进程，当他长时间不使用或者当系统需要回收内存的时候会关闭这个进程。
+
+通过这种方式android实现最小特权原则（principle of  least privilege）。也就是说，每个应用程序，默认情况下，只能访问它需要做的组件，它需要做的工作，并没有更多的。
+
+
+然而，有一种方法让app和其他的app共享数据，另外一个app允许访问系统服务:
+1. 可以安排2个应用程序来共享同一个用户身份证，在这种情况下，他们能够访问对方的文件.为了节省系统资源，同一用户身份的应用程序还可以安排在同一个进程中运行，并共享相同的虚拟机(应用程序还必须有相同的证书签名)
+2. 一个应用程序可以请求对设备数据的访问权限，如用户的联系人、短信、可插拔的存储设备（SD卡），摄像头，蓝牙甚至更多。用户必须显式地授予这些权限
+
+
+
+App Components
+  -- Activities
+     -- 描述:Activity是为用户提供可视化界面并可以与用户交互的组件。
+     -- 生命周期:
+        -- onCreate()
+        -- onStart()
+        -- onResume()
+        -- Activity running
+        -- onPause()
+        -- onStop()
+        -- onDestroy()
+        -- shut down
+
+ -- Services  
+    -- 作用: 它主要用于在后台处理一些耗时的逻辑，或者去执行某些需要长期运行的任务
+    -- 运行地点分类:
+       -- local
+       -- remote
+    -- 运行类型
+       -- client
+       -- server
+    -- 使用方式分类
+       -- startService 
+       -- bindService 
+       -- startService 同时也 bindService 启动的服务
+
+
+    -- Service的生命周期
+       -- onCreate　　
+       -- onStart　　
+       -- onDestroy　　
+       -- onBind 
+
+  -- Content providers
+       -- Content Providers存储和取得数据，以及让它对所有应用程序可见
+
+  -- Broadcast receivers
+       -- 描述:广播是一种广泛运用的在应用程序之间传输信息的机制
+
+

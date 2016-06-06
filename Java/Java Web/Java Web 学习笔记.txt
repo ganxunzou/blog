@@ -1,0 +1,79 @@
+==============Servlet==================
+Servlet 是一个单例，因此存在线程安全问题。但是一个应用程序可以有多个Servlet（eg:文件上传Servlet,默认请求Servlet）
+Servlet 生命周期
+	-- init
+    -- service(这里面执行doGet,doPost)
+    -- destroy
+（因为Servlet是的单例，所以init和destroy只会被执行一次。）
+Servlet可以重定向和转发请求
+
+================JSP==============
+JSP也是单例
+JSP脚本：<% %>
+JSP输出：<%= %>
+JSP注释：java注释
+JSP声明：<%! %>
+JSP指令：<%@ %>
+	-- page 声明JSP页面属性
+	-- include 指令导入其他页面
+	-- taglib 标签指令
+JSP行为
+	-- jsp:include 导入其他页面
+	-- jsp:useBean 使用java Bean
+	-- jsp:getProperty
+	-- jsp:setProperty
+	-- jsp:plugin
+	-- jsp:directive 指令类似<%@ %> eg:<jsp:directive page/> 等同于 <%@page %>
+JSP域 ：page request session application
+JSP 隐藏对象
+	-- out	javax.servlet.jsp.JspWriter
+	-- request
+	-- response
+	-- config javax.servlet.ServletConfig
+	-- session  javax.servlet.http.HttpSession
+	-- application	javax.servlet.ServletContext(Servlet中获取：ServletConfig.getServerContext())
+	-- page
+	-- pageContext
+	-- exception
+
+EL表达式
+
+Cookie
+	-- Cookie 为了解决HTTP协议无状态问题，http在请求和响应后，连接就断开了。
+	-- Cookie 需要浏览器支持，不支持跨域名
+	-- 查看当前域的Cookie javascript:alert(document.cookie);
+	-- Cookie实际上客户端保存的一段小文本，在请求的时候会自动加上。
+	-- 获取Cookie：request.getCookies()
+	-- 设置Cookie: response.addCookie(cookie);
+	-- Cookie 中文编码需要使用URLEncoder转成utf-8 ,读取的时候用URLDecoder反转
+	-- Cookie的有效期由maxAge决定
+	-- Cookie的修改和删除：
+	   -- 修改，创建一个同名的Cookie
+	   -- 删除，创建一个同名的Cookie，并设置maxAge=0
+
+Session
+	-- Session 保存在服务端，Cookie保存在客户端
+	-- Session是记录客户机状态的机制
+	-- 只有访问JSP Servlet等程序才会创建session，只访问HTML、IMAGE等静态资源不会创建Session
+	-- Session生命周期：Session在用户
+	-- 服务端记录Session需要根据客户端的Cookie来标识是否是同一个session。如果客户端不支持Cookie，采用重写URL的方式
+
+Filter 过滤器
+	-- 生命周期
+	   -- init
+	   -- doFilter
+	   -- destroy
+	-- Filter案例
+	   -- 防盗链Filter
+	   -- 字符编码Filter：解决Tomcat等服务器request，response乱码问题。
+	   -- 日志Filter
+	   -- 异常捕获Filter
+	   -- 权限验证Filter
+	   -- 内容替换Filter
+	   -- GZIP压缩Filter@@
+	   -- 图像水印Filter
+
+
+=========================Listener===================================================
+1. HttpSessionListener、ServletContextListener、ServletRequestListener
+2. xxxAttributeListenr

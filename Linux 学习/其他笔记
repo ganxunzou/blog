@@ -1,0 +1,4 @@
+查看npm 配置文件  npm config ls -l
+
+
+npm config set strict-ssl = false

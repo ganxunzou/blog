@@ -1,0 +1,130 @@
+=============================================================================
+	对象概述
+=============================================================================
+1. 属性：
+   -- 概述：对象中包含一系列属性，属性是“无序”的，每个属性都有一个字符串key和对应的value
+   -- 属性标签(Object.getOwnPropertyDescriptor(Object,'prototype');)
+      -- writable
+      -- enumerable
+      -- configurable
+      -- value
+      -- get/set
+
+2. 内部属性
+   --[[proto]]
+   --[[class]]
+   --[[extensible]]
+
+
+3. 创建对象的方式
+   -- 字面量：Var obj = {x:1,y:2};
+   -- new 构造器：
+   -- Object.create()
+
+4. 原型链   
+   -- 
+
+
+5. 属性判断操作符
+   -- in  //递归查找原型链
+   -- hasOwnProperty()   //只查找对象上的属性
+
+
+=============================================================================
+	属性操作：
+			 属性读写
+	         属性异常
+	         删除属性
+	         检测属性
+	         枚举属性
+	         属性标签
+=============================================================================
+1. 属性读写：
+	-- 遍历:for .. in （会递归查找原型链的属性）
+	-- 
+2. 属性删除：
+	-- delete obj.x
+	-- var 定义的变量不能删除（eval除外）	
+3. 检测属性
+   -- 属相是否存在：in  和  hasOwnProperty()
+   -- 是否可枚举：propertyIsNumerable()
+
+4. 自定义属性标签（Object.defineProperty(obj,'att',{enumerable:false,value:1000})）
+
+5. getter/setter
+   --
+   -- get/set与原型链
+      -- 对象没有属性，但是原型上有get方法，直接 obj.z = '';模式赋值失败。如果想在obj增加z属性，需要用Object.difineProperty(obj,'z',{})
+
+6. 属性标签：
+   -- 标签：value,enumerable,configurable,writable
+   -- 方法：
+      -- Object.defineProperties(obj,{att1:{writable:true},att2:{writable:true}})
+      -- Object.defineProperty(obj,'att',{writable:true})
+
+
+
+
+=============================================================================
+	对象操作：
+	         对象标签
+	         对象类型检测
+=============================================================================
+1. 对象标签
+   -- [[proto]]				//原型链
+   -- [[class]]				//类型
+   -- [[extensible]]		//是否可扩展
+
+
+2. 检测对象类型
+   -- typeof
+   -- instanceOf
+   -- constructor
+   -- toString.call()
+
+
+
+JavaScript中检测对象类型的运算符有：typeof、instanceof，还有对象的constructor    -- typeof 运算符
+   		typeof 是一元运算符，返回结果是一个说明运算数类型的字符串。如："number"，"string"，"boolean"，"object"，"function"，"undefined"（可用于判断变量是否存在）。 但 typeof 的能力有限，其对于Date、RegExp类型返回的都是"object"。如:
+	   		typeof {}; // "object" 
+			typeof []; // "object" 
+			typeof new Date(); // "object"
+
+   	-- instanceof 运算符
+   		instanceof 运算符要求其左边的运算数是一个对象，右边的运算数是对象类的名字或构造函数。如果 object 是 class 或构造函数的实例，则 instanceof 运算符返回 true。如果 object 不是指定类或函数的实例，或者 object 为 null，则返回 false。如：
+			[] instanceof Array; // true 
+			[] instanceof Object; // true 
+			[] instanceof RegExp; // false 
+			new Date instanceof Date; // true
+
+	-- constructor 属性。
+		 JavaScript中，每个对象都有一个constructor属性，它引用了初始化该对象的构造函数，常用于判断未知对象的类型。如给定一个求知的值 通过typeof运算符来判断它是原始的值还是对象。如果是对象，就可以使用constructor属性来判断其类型。所以判断数组的函数也可以这样写：
+			function isArray(arr){ 
+			    return typeof arr == "object" && arr.constructor == Array; 
+			}
+
+
+示例代码:
+
+	function foo(){}
+	var f = new foo();
+	foo.prototype.z = 3;
+	f.x = 1;
+	f.y = 2;
+
+
+原型链继承关系
+	-- 原型链: f.proto --> foo.prototype --> Object.prototype --> null
+	-- 设置对象属性不会修改原型链的值，例如设置 :
+		f.z = 5；
+		console.log(foo.prototype.z);// 3
+
+
+判断对象是否存在某个属性:
+    -- 'z' in f // true（会递归查找原型链上的属性）
+    -- f.hasOwnProperty('z') //false（不会递归原型链上的属性）
+
+删除对象属性
+    -- delete f.x
+
+get/set方法

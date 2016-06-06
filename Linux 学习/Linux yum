@@ -1,0 +1,37 @@
+
+1. 安装
+	yum install 
+
+2. 更新
+   yum update
+
+3. 查找和显示
+   yum info package1 		显示安装包信息package1
+   yum list 				显示所有已经安装和可以安装的程序包 
+   yum list|grep package1	查找特定的包
+
+4. 删除程序
+	yum remove
+
+5. 清除缓存
+	yum clean packages 清除缓存目录下的软件包
+
+6. 本地安装
+    yum localinstall packages
+
+
+三、yum 配置
+
+yum 的配置文件分为两部分：main 和repository
+
+main 部分定义了全局配置选项，整个yum 配置文件应该只有一个main。常位于/etc/yum.conf 中。
+repository 部分定义了每个源/服务器的具体配置，可以有一到多个。常位于/etc/yum.repo.d 目录下的各文件中。
+yum.conf 文件一般位于/etc目录下，一般其中只包含main部分的配置选项。
+
+
+
+
+
+
+
+systemctl status 

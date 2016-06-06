@@ -1,0 +1,14 @@
+\========================================\
+	window git 使用 ssh访问github 
+\========================================\
+1. 生成公私钥
+  打开 Git Bash 输入：ssh-keygen -t rsa -C "ganxunzou@163.com"
+  此时会在~/.ssh目录下生成 id_rsa 和 id_rsa.pub
+
+2. 拷贝公钥到github SHH Key管理中心
+  拷贝id_rsa.pub 里面的文本，到github
+
+3. 测试
+   在Git Bash 界面中输入：git clone git@github.com:ganxunzou/HelloWorld.git
+
+4. TortoiseGit 支持 

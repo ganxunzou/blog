@@ -1,0 +1,37 @@
+=======================
+	使用者与群组
+=======================
+基础知识
+	和root相关的信息记录在/etc/passwd这个档案
+	至于密码则记录在/etc/shadow
+	所有的群组记录在/etc/group
+
+命令：
+	chgrp（change group） : 改变档案所在群组
+		-- eg: chgrp ganxz aaa (将aaa的用户组设置为ganxz)
+
+	chown (change owner): 改变档案所属人
+		-- 说明 ：chown [-R] 账号名称[:群组名称] 档案或者目录
+
+		-- eg: chown -R ganxz  aaa （将aaa目录下的所有文件包括aaa的拥有者改为ganxz）
+		-- eg:chown -R ganxz:ganxzgrp aaa (将aaa及aaa目录下的所有文件的拥有者和群组改为：ganxz 和 ganxzgrp)
+
+	chmod : 改变档案的属性，SUID，等等的特性。
+
+
+
+
+=======================
+	Linux档案权限概念
+=======================
+
+
+
+=======================
+	Linux 目录配置
+=======================
+
+
+=======================
+Linux 支持的档案系统
+=======================

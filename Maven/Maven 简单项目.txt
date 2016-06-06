@@ -1,0 +1,94 @@
+===============================================
+	Maven 目录结构
+===============================================
+simple
+  -- pom.xml
+  -- src
+     -- main
+        -- java
+	-- resources
+     -- test
+        -- java
+	-- resources
+
+===============================================
+	简单的POM对象
+===============================================
+Maven 坐标:groupId,artifactId,packaging,version
+
+groupId(组ID):
+  团体ID，一般是逆向的公司域名。eg:com.hello
+
+artifactId(构件ID):
+  项目ID。eg：Simple
+
+
+===============================================
+	Maven 核心
+===============================================
+maven插件和目标（pluginId:goalId）
+  -- 一个插件是一个或者多个目标的集合体
+  -- 一个目标是maven的一个工作单元
+
+maven 的生命周期
+  -- 生命周期：包含一个项目构建中的一系列有序的阶段（一个生命周期是一些阶段的序列）
+  -- maven最基本的生命周期：第一阶段：验证项目的完整性，第二阶段：把项目发布成产品
+
+  -- maven生命周期阶段：
+     -- process-resource
+        -- compile
+	   -- process-classes
+	      -- process-test-resource
+	         -- test-compile
+		    -- test
+		       -- prepare-package
+		          -- package
+
+
+** 插件目标和生命周期的关系 ：插件目标可以附着在生命周期的阶段上
+  -- 以package为结尾的默认生命周期
+     -- resource:resource
+        -- Resource插件的resource目标绑定到resource阶段。这个目标的目的是将：src/main/resources资源复制到输出目录。默认：/target
+     -- compile:compile
+        -- Compile插件的compile目标绑定到compile阶段，这个目标的作用是编译src/main/java下的代码，并输出目录。默认：/target/classes
+     -- resource:testResource
+        -- Resource插件的testResource目标绑定到test-resource阶段。这个目标的目的是将：src/test/resources资源复制到输出目录。默认：/target
+     -- compile:tesstCompile
+        -- Compile插件的testCompile目标绑定到test-compile阶段，这个目标的作用是编译src/test/java下的代码，并输出目录。默认：/target/test-classes
+     -- surefire:test
+        -- Surefile插件的test目标绑定到test阶段，这个目标运行所有的测试并创建哪些捕捉详细测试结果的输出文件。默认情况下，如果测试失败，这个目标会终止。
+     -- jar:java
+        -- 将Jar插件的jar目标绑定到package阶段，这个目标是把输出目录打包成JAR文件。
+
+
+
+Maven坐标
+  -- 项目坐标：groupdId:artifactId:packaing:version
+     -- groupId(组ID): 团体ID，一般是逆向的公司域名。eg:com.hello
+     -- artifactId(构件ID): 项目ID。eg：Simple
+
+Maven 仓库
+  -- maven仓库是通过结构来定义的
+  -- 仓库存储方式：groupdId:artifactId:version
+     -- 目录格式：/<groupdId>/<artifactid>/<version>/<artifactid>-<version>.<packaging>
+     -- eg: org.apache.commons:commons-eamil:1.1 构件在仓库的位置：org/apache/commons/commons-email/1.1/commons-eamil-1.1.jar
+
+
+Maven 依赖管理
+  -- Maven传递性依赖
+  -- 依赖范围：
+       -- 测试：test
+       -- provided：告诉Maven一个依赖在编译的时候需要，但是它不应该被捆绑到构件输出中
+
+
+
+站点生成和报告
+  -- mvn site
+
+
+===============================================
+	Maven 查看插件帮助
+===============================================
+mvn help:describe -Dplugin=exec -Dfull
+打印项目依赖：mvn dependency:resolve
+项目依赖树：mvn dependency:tree

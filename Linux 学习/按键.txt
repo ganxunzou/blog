@@ -1,0 +1,75 @@
+startx 		启动界面
+cal 		日历
+date 		时间
+ls
+cp 			拷贝	
+	-- cp 来源目录 目标档案
+touch 		创建一个空文档
+su 			变换身份
+
+ yum install lrzsz -y
+ 
+chmod 		改变文件属性
+	-- 数字类型改变文件档案属性
+		-- r ：4
+		-- w ：2
+		-- x : 1
+		-- eg: chmod [-R] 770 test.txt
+
+	-- 符号类型改变档案权限
+		-- U : user
+		-- g : group
+		-- o : other
+		-- a ：all
+		-- eg: chmod u=rwx,g=rw,o=--- test.txt
+			   chmod a+w test.txt(增加所有用户的读取权限)	
+			   chmod a-w test.txt(去除所有用户的读取权限)
+
+===============系统相关====================
+who 		目前谁在线
+netstat	-a 	网络联机状态
+ps -aux		背景执行的程序
+shutdown	关机
+reboot		重启
+sync		数据同步写入磁盘
+
+======man(manual) page ==============================
+空格		向下翻一页
+Page Down 	向下翻一页
+Page Up		向上翻一页
+Home		去到第一页
+End			去到最后一页
+/String		向下搜索string
+？string	向上搜寻string
+n,N
+q 			结束man page
+
+======info page ==============================
+空格		向下翻一页
+Page Down 	向下翻一页
+Page Up		向上翻一页
+Tab			在node之间移动  alt+Tab 向上移动
+Enter		进入node
+b			移动光标到该info页面的第一个node
+e 			移动光标到该info页面的最后一个node
+n    		前往下一个info page处
+p 			前往上一个info page处
+u 			向上移动一层
+s(/) 		在info page 中查找
+h   		显示求助选项
+?   		指令一览表
+q 			结束这次info page
+
+==============VI=============
+vi filename 编辑文件，文件不存在则新建
+i			插入模式
+ESC 		接收命令，:wq 保存并退出，:q 退出不保存
+
+
+===============YUM===============
+yum -y install aaa
+yum -y remove aaa
+
+
+===============chkconfig===============
+系统启动自动重启：chkconfig nginx on
