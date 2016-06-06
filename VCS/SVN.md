@@ -1,10 +1,10 @@
 linux Subversion 服务器搭建
-
+ 
 1. 安装SVN
 yum install subversion
 
 2. 查看svn版本
-svnserve –version
+svnserve –version 
 
 3. 创建svn版本库(h5是版本库名称)
 svnadmin create /var/www/svn/h5
